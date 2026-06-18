@@ -6,7 +6,7 @@ MCP server providing semantic documentation search across 16+ web frameworks. Pa
 
 ```bash
 # Claude Code
-claude mcp add framework-docs -- docker run -i --rm framework-docs-mcp:latest
+claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:latest
 
 # VS Code / Copilot (.vscode/mcp.json)
 {
@@ -14,7 +14,7 @@ claude mcp add framework-docs -- docker run -i --rm framework-docs-mcp:latest
     "framework-docs": {
       "type": "stdio",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "framework-docs-mcp:latest"]
+      "args": ["run", "-i", "--rm", "ghcr.io/shkna1368/docpilot:latest"]
     }
   }
 }
@@ -24,7 +24,7 @@ claude mcp add framework-docs -- docker run -i --rm framework-docs-mcp:latest
   "mcpServers": {
     "framework-docs": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "framework-docs-mcp:latest"]
+      "args": ["run", "-i", "--rm", "ghcr.io/shkna1368/docpilot:latest"]
     }
   }
 }
