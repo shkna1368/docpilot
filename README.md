@@ -32,6 +32,16 @@ docpilot exposes two tools via MCP:
 # Claude Code
 claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:latest
 
+# Kiro (~/.kiro/settings/mcp.json)
+{
+  "mcpServers": {
+    "framework-docs": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "ghcr.io/shkna1368/docpilot:latest"]
+    }
+  }
+}
+
 # VS Code / Copilot (.vscode/mcp.json)
 {
   "servers": {
