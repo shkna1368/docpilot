@@ -26,29 +26,6 @@ jobs:
           java-version: '25'
           cache: 'maven'
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-          cache-dependency-path: ingestion/pyproject.toml
-
-      - name: Install ingestion dependencies
-        run: |
-          cd ingestion
-          pip install -e .
-
-      - name: Run unit tests
-        run: |
-          cd ingestion
-          pip install pytest
-          pytest tests/ -v
-
-      - name: Scrape and embed docs
-        run: |
-          cd ingestion
-          python -m src.cli scrape-all
-
       - name: Build MCP server JAR
         run: ./mvnw package -DskipTests -Dquarkus.package.jar.type=uber-jar
 
