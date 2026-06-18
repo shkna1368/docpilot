@@ -66,6 +66,10 @@ def _register_scrapers():
     from .scrapers.infra_extra import TraefikScraper, EnvoyScraper, IstioScraper, ArgoCDScraper, PulumiScraper, KeycloakScraper
     from .scrapers.ml_extra import ScikitLearnScraper, MLflowScraper
     from .scrapers.nats import NATSScraper
+    from .scrapers.kafka_clients import KafkaPythonScraper, KafkaGoScraper, KafkaRustScraper
+    from .scrapers.go_ecosystem import GoRedisScraper, PgxScraper, GrpcGoScraper, SqlcScraper
+    from .scrapers.rust_ecosystem import SqlxScraper, TonicScraper, SeaOrmScraper
+    from .scrapers.oracle import OracleGoScraper, OracleNodeScraper, OraclePythonScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
     SCRAPERS["go-echo"] = EchoScraper()
@@ -150,6 +154,19 @@ def _register_scrapers():
     SCRAPERS["scikit-learn"] = ScikitLearnScraper()
     SCRAPERS["mlflow"] = MLflowScraper()
     SCRAPERS["nats"] = NATSScraper()
+    SCRAPERS["kafka-python"] = KafkaPythonScraper()
+    SCRAPERS["kafka-go"] = KafkaGoScraper()
+    SCRAPERS["kafka-rust"] = KafkaRustScraper()
+    SCRAPERS["go-redis"] = GoRedisScraper()
+    SCRAPERS["pgx"] = PgxScraper()
+    SCRAPERS["grpc-go"] = GrpcGoScraper()
+    SCRAPERS["sqlc"] = SqlcScraper()
+    SCRAPERS["sqlx"] = SqlxScraper()
+    SCRAPERS["tonic"] = TonicScraper()
+    SCRAPERS["sea-orm"] = SeaOrmScraper()
+    SCRAPERS["oracle-go"] = OracleGoScraper()
+    SCRAPERS["oracle-node"] = OracleNodeScraper()
+    SCRAPERS["oracle-python"] = OraclePythonScraper()
 
 
 def _run_scraper(name: str, scraper):
