@@ -70,6 +70,7 @@ def _register_scrapers():
     from .scrapers.go_ecosystem import GoRedisScraper, PgxScraper, GrpcGoScraper, SqlcScraper
     from .scrapers.rust_ecosystem import SqlxScraper, TonicScraper, SeaOrmScraper
     from .scrapers.oracle import OracleGoScraper, OracleNodeScraper, OraclePythonScraper
+    from .scrapers.hibernate import HibernateScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
     SCRAPERS["go-echo"] = EchoScraper()
@@ -167,6 +168,7 @@ def _register_scrapers():
     SCRAPERS["oracle-go"] = OracleGoScraper()
     SCRAPERS["oracle-node"] = OracleNodeScraper()
     SCRAPERS["oracle-python"] = OraclePythonScraper()
+    SCRAPERS["hibernate"] = HibernateScraper()
 
 
 def _run_scraper(name: str, scraper):

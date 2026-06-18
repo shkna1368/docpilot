@@ -69,7 +69,7 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | Language | Frameworks |
 |----------|-----------|
 | Go | Fiber, Gin, Echo, Chi, Gorilla Mux |
-| Java | Spring Boot, Spring Framework, Spring Security, Spring Data, Spring Cloud, Quarkus, Micronaut, Vert.x |
+| Java | Spring Boot, Spring Framework, Spring Security, Spring Data, Spring Cloud, Quarkus, Micronaut, Vert.x, Hibernate |
 | Python | FastAPI, Django, Flask |
 | Rust | Rocket, Actix-web, Axum, Warp |
 | TypeScript | NestJS, Angular, Next.js, Nuxt.js, Hono |
