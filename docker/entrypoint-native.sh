@@ -1,13 +1,8 @@
 #!/bin/bash
 set -e
 
-# Start PostgreSQL in background
-docker-entrypoint.sh postgres &
-
-# Wait for PostgreSQL to be ready
-until pg_isready -U docs -d frameworkdocs -q; do
-    sleep 0.5
-done
+# Start PostgreSQL as postgres user (data is pre-initialized)
+su postgres -c "pg_ctl -D $PGDATA -o \"-c listen_addresses='localhost'\" -w start"
 
 # Run native MCP server (stdio mode)
 exec /app/server

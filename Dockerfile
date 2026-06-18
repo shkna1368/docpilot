@@ -10,10 +10,16 @@ ENV POSTGRES_PASSWORD=docs
 ENV POSTGRES_DB=frameworkdocs
 ENV PGDATA=/var/lib/postgresql/data
 
+# Schema (runs first)
 COPY docker/init.sql /docker-entrypoint-initdb.d/00-schema.sql
+
+# Pre-generated SQL files per framework (inserted on first start)
 COPY ingestion/output/*.sql /docker-entrypoint-initdb.d/
+
+# Index (runs last)
 COPY docker/zz-index.sql /docker-entrypoint-initdb.d/zz-index.sql
 
+# MCP server
 COPY target/*-runner.jar /app/server.jar
 
 COPY docker/entrypoint.sh /entrypoint.sh
