@@ -183,6 +183,11 @@ public class DocSearchTools {
                 | mongodb | NoSQL | 7 |
                 | elasticsearch | JSON | 8 |
                 | rabbitmq | AMQP | 3.13 |
+                | jenkins | Groovy | 2.4 |
+                | flutter | Dart | 3.24 |
+                | react-native | TypeScript | 0.74 |
+                | android | Kotlin | 15 |
+                | ios-swift | Swift | 6.0 |
                 """;
         return ToolResponse.success(List.of(new TextContent(list)));
     }

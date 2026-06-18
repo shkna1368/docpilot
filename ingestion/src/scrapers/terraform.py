@@ -11,4 +11,8 @@ class TerraformScraper(GitHubDocsScraper):
     categories = "devops,infrastructure,cloud"
     paths = [
         "docs/README.md",
+        "docs/architecture.md",
+        "docs/resource-instance-change-lifecycle.md",
+        "docs/destroying.md",
+        "CHANGELOG.md",
     ]

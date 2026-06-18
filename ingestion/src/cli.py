@@ -39,6 +39,11 @@ def _register_scrapers():
     from .scrapers.mongodb import MongoDBScraper
     from .scrapers.elasticsearch import ElasticsearchScraper
     from .scrapers.rabbitmq import RabbitMQScraper
+    from .scrapers.jenkins import JenkinsScraper
+    from .scrapers.flutter import FlutterScraper, FlutterSamplesScraper
+    from .scrapers.react_native import ReactNativeScraper
+    from .scrapers.android import AndroidScraper, AndroidComposeScraper, AndroidArchScraper
+    from .scrapers.ios_swift import SwiftScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
     SCRAPERS["go-echo"] = EchoScraper()
@@ -76,6 +81,14 @@ def _register_scrapers():
     SCRAPERS["mongodb"] = MongoDBScraper()
     SCRAPERS["elasticsearch"] = ElasticsearchScraper()
     SCRAPERS["rabbitmq"] = RabbitMQScraper()
+    SCRAPERS["jenkins"] = JenkinsScraper()
+    SCRAPERS["flutter"] = FlutterScraper()
+    SCRAPERS["flutter-samples"] = FlutterSamplesScraper()
+    SCRAPERS["react-native"] = ReactNativeScraper()
+    SCRAPERS["android"] = AndroidScraper()
+    SCRAPERS["android-compose"] = AndroidComposeScraper()
+    SCRAPERS["android-arch"] = AndroidArchScraper()
+    SCRAPERS["ios-swift"] = SwiftScraper()
 
 
 def _run_scraper(name: str, scraper):

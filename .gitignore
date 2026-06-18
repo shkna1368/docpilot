@@ -18,9 +18,6 @@ venv/
 .pytest_cache/
 *.egg
 
-# Ingestion output (generated SQL - large files)
-ingestion/output/*.sql
-
 # IDE
 .idea/
 *.iml

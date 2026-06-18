@@ -11,4 +11,5 @@ class ElasticsearchScraper(GitHubDocsScraper):
     categories = "database,search,analytics"
     paths = [
         "docs/README.md",
+        "README.md",
     ]

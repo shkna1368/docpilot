@@ -1,6 +1,6 @@
 # docpilot
 
-MCP server providing semantic documentation search across 24 frameworks and technologies. Packaged as a single Docker image — zero installation beyond Docker.
+MCP server providing semantic documentation search across 30+ frameworks and technologies. Packaged as a single Docker image — zero installation beyond Docker.
 
 ## Quick Start
 
@@ -41,6 +41,10 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | TypeScript | NestJS, Angular |
 | JavaScript | Express, React |
 | C# | ASP.NET Core |
+| Dart | Flutter |
+| Kotlin | Android (Jetpack Compose) |
+| Swift | iOS (SwiftUI) |
+| Cross-platform | React Native |
 
 | Technology | Version |
 |-----------|---------|
@@ -56,6 +60,7 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | Docker | 27 |
 | Kubernetes | 1.31 |
 | Terraform | 1.9 |
+| Jenkins | 2.4 |
 
 ## Tools
 
@@ -78,7 +83,7 @@ Returns all indexed frameworks and technologies with their IDs, languages, and v
 ## Architecture
 
 Single Docker container running:
-- **PostgreSQL 17 + pgvector** — stores 10,700+ doc chunks with 384-dim embeddings
+- **PostgreSQL 17 + pgvector** — stores 15,000+ doc chunks with 384-dim embeddings
 - **Quarkus MCP Server (Java 25)** — stdio transport, BGE Small EN v1.5 embedding model
 - **ivfflat cosine index** — ~15ms average query latency
 
@@ -161,7 +166,7 @@ Environment variables (set in `application.properties`):
 
 | Key | Default | Description |
 |-----|---------|-------------|
-| `docs-mcp.min-score` | 0.75 | Minimum cosine similarity |
+| `docs-mcp.min-score` | 0.70 | Minimum cosine similarity |
 | `docs-mcp.max-candidates` | 50 | Candidates before reranking |
 | `docs-mcp.default-max-results` | 4 | Default results returned |
 
