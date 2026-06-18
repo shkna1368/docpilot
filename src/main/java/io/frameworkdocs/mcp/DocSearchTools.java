@@ -138,4 +138,37 @@ public class DocSearchTools {
     }
 
     private record ScoredResult(double score, String text, Map<String, Object> metadata) {}
+
+    @Tool(name = "listFrameworks", description = "List all available frameworks and technologies with documentation indexed in this server.")
+    public ToolResponse listFrameworks() {
+        String list = """
+                | ID | Language | Version |
+                |-----|----------|--------|
+                | go-fiber | Go | 3.3 |
+                | go-gin | Go | 1.12 |
+                | go-echo | Go | 5.1 |
+                | fastapi | Python | 0.136 |
+                | django | Python | 6.0 |
+                | flask | Python | 3.1.3 |
+                | spring-boot | Java | 4.0 |
+                | spring-framework | Java | 7 |
+                | spring-security | Java | 7 |
+                | spring-data | Java | 2024 |
+                | spring-cloud | Java | 2024 |
+                | quarkus | Java | 3.36 |
+                | nestjs | TypeScript | 11 |
+                | express | JavaScript | 4.22 |
+                | aspnet-core | C# | 10 |
+                | rocket | Rust | 0.6 |
+                | actix-web | Rust | 4.13 |
+                | axum | Rust | 0.8 |
+                | postgresql | SQL | 17 |
+                | mysql | SQL | 8 |
+                | redis | NoSQL | 7 |
+                | kafka | Java | 3.9 |
+                | grpc | Proto | 1.60 |
+                | graphql | GraphQL | Oct2021 |
+                """;
+        return ToolResponse.success(List.of(new TextContent(list)));
+    }
 }
