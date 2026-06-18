@@ -165,6 +165,8 @@ public class DocSearchTools {
                 | quarkus | Java | 3.36 |
                 | nestjs | TypeScript | 11 |
                 | express | JavaScript | 4.22 |
+                | angular | TypeScript | 19 |
+                | react | TypeScript | 19 |
                 | aspnet-core | C# | 10 |
                 | rocket | Rust | 0.6 |
                 | actix-web | Rust | 4.13 |
@@ -175,6 +177,12 @@ public class DocSearchTools {
                 | kafka | Java | 3.9 |
                 | grpc | Proto | 1.60 |
                 | graphql | GraphQL | Oct2021 |
+                | docker | Dockerfile | 27 |
+                | kubernetes | YAML | 1.31 |
+                | terraform | HCL | 1.9 |
+                | mongodb | NoSQL | 7 |
+                | elasticsearch | JSON | 8 |
+                | rabbitmq | AMQP | 3.13 |
                 """;
         return ToolResponse.success(List.of(new TextContent(list)));
     }

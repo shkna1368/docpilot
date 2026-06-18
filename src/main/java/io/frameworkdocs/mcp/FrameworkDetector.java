@@ -67,6 +67,8 @@ public class FrameworkDetector {
         String pkg = readIfExists(dir.resolve("package.json"));
         if (pkg != null) {
             if (pkg.contains("@nestjs/core")) return "nestjs";
+            if (pkg.contains("@angular/core")) return "angular";
+            if (pkg.contains("\"react\"")) return "react";
             if (pkg.contains("\"express\"")) return "express";
         }
         return null;

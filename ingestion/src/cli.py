@@ -31,6 +31,14 @@ def _register_scrapers():
     from .scrapers.kafka import KafkaScraper
     from .scrapers.grpc import GrpcScraper
     from .scrapers.graphql import GraphQLScraper
+    from .scrapers.angular import AngularScraper
+    from .scrapers.react import ReactScraper
+    from .scrapers.docker import DockerScraper
+    from .scrapers.kubernetes import KubernetesScraper
+    from .scrapers.terraform import TerraformScraper
+    from .scrapers.mongodb import MongoDBScraper
+    from .scrapers.elasticsearch import ElasticsearchScraper
+    from .scrapers.rabbitmq import RabbitMQScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
     SCRAPERS["go-echo"] = EchoScraper()
@@ -60,6 +68,14 @@ def _register_scrapers():
     SCRAPERS["kafka"] = KafkaScraper()
     SCRAPERS["grpc"] = GrpcScraper()
     SCRAPERS["graphql"] = GraphQLScraper()
+    SCRAPERS["angular"] = AngularScraper()
+    SCRAPERS["react"] = ReactScraper()
+    SCRAPERS["docker"] = DockerScraper()
+    SCRAPERS["kubernetes"] = KubernetesScraper()
+    SCRAPERS["terraform"] = TerraformScraper()
+    SCRAPERS["mongodb"] = MongoDBScraper()
+    SCRAPERS["elasticsearch"] = ElasticsearchScraper()
+    SCRAPERS["rabbitmq"] = RabbitMQScraper()
 
 
 def _run_scraper(name: str, scraper):

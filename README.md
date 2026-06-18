@@ -1,6 +1,6 @@
-# framework-docs-mcp
+# docpilot
 
-MCP server providing semantic documentation search across 16+ web frameworks. Packaged as a single Docker image — zero installation beyond Docker.
+MCP server providing semantic documentation search across 24 frameworks and technologies. Packaged as a single Docker image — zero installation beyond Docker.
 
 ## Quick Start
 
@@ -30,7 +30,7 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 }
 ```
 
-## Supported Frameworks
+## Supported Frameworks & Technologies
 
 | Language | Frameworks |
 |----------|-----------|
@@ -38,27 +38,49 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | Java | Spring Boot, Spring Framework, Spring Security, Spring Data, Spring Cloud, Quarkus |
 | Python | FastAPI, Django, Flask |
 | Rust | Rocket, Actix-web, Axum |
-| TypeScript | NestJS |
-| JavaScript | Express |
+| TypeScript | NestJS, Angular |
+| JavaScript | Express, React |
 | C# | ASP.NET Core |
 
-## Tool: `searchDocs`
+| Technology | Version |
+|-----------|---------|
+| PostgreSQL | 17 |
+| MySQL | 8 |
+| Redis | 7 |
+| MongoDB | 7 |
+| Elasticsearch | 8 |
+| Apache Kafka | 3.9 |
+| RabbitMQ | 3.13 |
+| gRPC | 1.60 |
+| GraphQL | Oct2021 |
+| Docker | 27 |
+| Kubernetes | 1.31 |
+| Terraform | 1.9 |
+
+## Tools
+
+### `searchDocs`
 
 ```
-query:      "fiber route parameters"          # Natural-language query
-framework:  "go-fiber"                        # Optional filter
-projectDir: "/path/to/project"                # Auto-detect framework
-maxResults: 4                                 # Default: 4, max: 50
+query:            "fiber route parameters"    # Natural-language query
+framework:        "go-fiber"                  # Optional filter
+frameworkVersion:  "3.3"                      # Optional version filter
+projectDir:       "/path/to/project"          # Auto-detect framework
+maxResults:       4                           # Default: 4, max: 50
 ```
 
-The tool auto-detects your framework from project files (`go.mod`, `pom.xml`, `package.json`, `Cargo.toml`, etc.) and boosts relevant results.
+Auto-detects your framework from project files (`go.mod`, `pom.xml`, `package.json`, `Cargo.toml`, etc.) and boosts relevant results.
+
+### `listFrameworks`
+
+Returns all indexed frameworks and technologies with their IDs, languages, and versions.
 
 ## Architecture
 
 Single Docker container running:
-- **PostgreSQL 17 + pgvector** — stores ~2k+ doc chunks with 384-dim embeddings
+- **PostgreSQL 17 + pgvector** — stores 10,700+ doc chunks with 384-dim embeddings
 - **Quarkus MCP Server (Java 25)** — stdio transport, BGE Small EN v1.5 embedding model
-- **ivfflat cosine index** — sub-500ms query latency
+- **ivfflat cosine index** — ~15ms average query latency
 
 ## Build from Source
 
@@ -97,37 +119,41 @@ Requires GraalVM 25+ with native-image installed.
 ## Project Structure
 
 ```
-framework-docs-mcp/
+docpilot/
 ├── pom.xml                          # Quarkus + langchain4j + MCP
 ├── Dockerfile
+├── Dockerfile.native                # GraalVM native image
 ├── docker/
 │   ├── entrypoint.sh                # Starts PG then Java server
 │   ├── init.sql                     # Schema (pgvector)
 │   └── zz-index.sql                 # ivfflat index (after data load)
 ├── src/main/java/io/frameworkdocs/mcp/
-│   ├── DocSearchTools.java          # MCP searchDocs tool
+│   ├── DocSearchTools.java          # MCP searchDocs + listFrameworks tools
 │   ├── FrameworkDetector.java       # Auto-detect from project files
 │   ├── EmbeddingModelLoader.java    # BGE model (async load)
 │   ├── ContainerManager.java        # PgVector connection
 │   ├── SqlLoader.java               # Schema readiness check
 │   └── StartupObserver.java         # Warm-up on start
-└── ingestion/
-    ├── pyproject.toml
-    ├── src/
-    │   ├── cli.py                   # scrape / scrape-all commands
-    │   ├── scraper.py               # DocPage + BaseScraper
-    │   ├── chunker.py               # 500-char recursive split
-    │   ├── embedder.py              # BGE Small EN v1.5
-    │   ├── sql_writer.py            # INSERT statement generator
-    │   └── scrapers/                # One per framework (GitHub raw fetch)
-    └── output/                      # Generated .sql files
+├── ingestion/
+│   ├── pyproject.toml
+│   ├── src/
+│   │   ├── cli.py                   # scrape / scrape-all commands
+│   │   ├── scraper.py               # DocPage + BaseScraper
+│   │   ├── chunker.py               # Header-aware recursive split
+│   │   ├── embedder.py              # BGE Small EN v1.5
+│   │   ├── sql_writer.py            # INSERT statement generator
+│   │   └── scrapers/                # One per framework (GitHub raw fetch)
+│   ├── output/                      # Generated .sql files
+│   └── tests/                       # Unit tests
+└── .github/workflows/build.yml      # CI/CD pipeline
 ```
 
 ## How It Works
 
-1. **Ingestion** (build time): Python fetches markdown/asciidoc from GitHub repos → chunks text → embeds with BGE Small EN v1.5 → generates SQL INSERT statements
-2. **Docker build**: Copies SQL files into PostgreSQL init directory, loads on first container start
-3. **Runtime**: AI agent sends query → Quarkus embeds it → pgvector cosine similarity search → metadata boosting (title/topics/framework match) → returns ranked results
+1. **Ingestion** (build time): Python fetches markdown/asciidoc from GitHub repos → splits by headers → embeds with BGE Small EN v1.5 → generates SQL INSERT statements
+2. **Docker build**: Copies SQL files into PostgreSQL init directory
+3. **First start**: PostgreSQL loads all SQL files (~10s), creates ivfflat index
+4. **Runtime**: AI agent sends query → Quarkus embeds it → pgvector cosine similarity search → metadata boosting (title/topics/framework match) → returns ranked results
 
 ## Configuration
 
@@ -135,7 +161,7 @@ Environment variables (set in `application.properties`):
 
 | Key | Default | Description |
 |-----|---------|-------------|
-| `docs-mcp.min-score` | 0.82 | Minimum cosine similarity |
+| `docs-mcp.min-score` | 0.75 | Minimum cosine similarity |
 | `docs-mcp.max-candidates` | 50 | Candidates before reranking |
 | `docs-mcp.default-max-results` | 4 | Default results returned |
 
