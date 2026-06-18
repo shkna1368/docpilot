@@ -259,3 +259,4 @@ class MyFrameworkScraper(GitHubDocsScraper):
 ## License
 
 MIT
+
