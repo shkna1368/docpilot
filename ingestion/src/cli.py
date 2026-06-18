@@ -44,6 +44,28 @@ def _register_scrapers():
     from .scrapers.react_native import ReactNativeScraper
     from .scrapers.android import AndroidScraper, AndroidComposeScraper, AndroidArchScraper
     from .scrapers.ios_swift import SwiftScraper
+    from .scrapers.langchain import LangChainScraper
+    from .scrapers.crewai import CrewAIScraper
+    from .scrapers.pytorch import PyTorchScraper
+    from .scrapers.tensorflow import TensorFlowScraper
+    from .scrapers.transformers import TransformersScraper
+    from .scrapers.spring_ai import SpringAIScraper
+    from .scrapers.spark import SparkScraper
+    from .scrapers.nextjs import NextJSScraper
+    from .scrapers.nuxtjs import NuxtScraper
+    from .scrapers.laravel import LaravelScraper
+    from .scrapers.rails import RailsScraper
+    from .scrapers.micronaut import MicronautScraper
+    from .scrapers.opentelemetry import OpenTelemetryScraper
+    from .scrapers.helm import HelmScraper
+    from .scrapers.nginx import NginxScraper
+    from .scrapers.llm_apis import OpenAIScraper, AnthropicScraper
+    from .scrapers.llamaindex import LlamaIndexScraper
+    from .scrapers.observability import PrometheusScraper, GrafanaScraper, VaultScraper
+    from .scrapers.web_extra import HonoScraper, FastifyScraper, SymfonyScraper, PhoenixScraper, ChiScraper, GorillaMuxScraper, SinatraScraper, VertxScraper, WarpScraper
+    from .scrapers.infra_extra import TraefikScraper, EnvoyScraper, IstioScraper, ArgoCDScraper, PulumiScraper, KeycloakScraper
+    from .scrapers.ml_extra import ScikitLearnScraper, MLflowScraper
+    from .scrapers.nats import NATSScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
     SCRAPERS["go-echo"] = EchoScraper()
@@ -89,6 +111,45 @@ def _register_scrapers():
     SCRAPERS["android-compose"] = AndroidComposeScraper()
     SCRAPERS["android-arch"] = AndroidArchScraper()
     SCRAPERS["ios-swift"] = SwiftScraper()
+    SCRAPERS["langchain"] = LangChainScraper()
+    SCRAPERS["crewai"] = CrewAIScraper()
+    SCRAPERS["pytorch"] = PyTorchScraper()
+    SCRAPERS["tensorflow"] = TensorFlowScraper()
+    SCRAPERS["transformers"] = TransformersScraper()
+    SCRAPERS["spring-ai"] = SpringAIScraper()
+    SCRAPERS["spark"] = SparkScraper()
+    SCRAPERS["nextjs"] = NextJSScraper()
+    SCRAPERS["nuxtjs"] = NuxtScraper()
+    SCRAPERS["laravel"] = LaravelScraper()
+    SCRAPERS["rails"] = RailsScraper()
+    SCRAPERS["micronaut"] = MicronautScraper()
+    SCRAPERS["opentelemetry"] = OpenTelemetryScraper()
+    SCRAPERS["helm"] = HelmScraper()
+    SCRAPERS["nginx"] = NginxScraper()
+    SCRAPERS["openai"] = OpenAIScraper()
+    SCRAPERS["anthropic"] = AnthropicScraper()
+    SCRAPERS["llamaindex"] = LlamaIndexScraper()
+    SCRAPERS["prometheus"] = PrometheusScraper()
+    SCRAPERS["grafana"] = GrafanaScraper()
+    SCRAPERS["vault"] = VaultScraper()
+    SCRAPERS["hono"] = HonoScraper()
+    SCRAPERS["fastify"] = FastifyScraper()
+    SCRAPERS["symfony"] = SymfonyScraper()
+    SCRAPERS["phoenix"] = PhoenixScraper()
+    SCRAPERS["go-chi"] = ChiScraper()
+    SCRAPERS["gorilla-mux"] = GorillaMuxScraper()
+    SCRAPERS["sinatra"] = SinatraScraper()
+    SCRAPERS["vertx"] = VertxScraper()
+    SCRAPERS["warp"] = WarpScraper()
+    SCRAPERS["traefik"] = TraefikScraper()
+    SCRAPERS["envoy"] = EnvoyScraper()
+    SCRAPERS["istio"] = IstioScraper()
+    SCRAPERS["argocd"] = ArgoCDScraper()
+    SCRAPERS["pulumi"] = PulumiScraper()
+    SCRAPERS["keycloak"] = KeycloakScraper()
+    SCRAPERS["scikit-learn"] = ScikitLearnScraper()
+    SCRAPERS["mlflow"] = MLflowScraper()
+    SCRAPERS["nats"] = NATSScraper()
 
 
 def _run_scraper(name: str, scraper):

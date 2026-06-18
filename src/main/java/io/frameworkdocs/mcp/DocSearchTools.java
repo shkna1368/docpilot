@@ -188,6 +188,13 @@ public class DocSearchTools {
                 | react-native | TypeScript | 0.74 |
                 | android | Kotlin | 15 |
                 | ios-swift | Swift | 6.0 |
+                | langchain | Python | 0.3 |
+                | crewai | Python | 0.80 |
+                | spring-ai | Java | 1.0 |
+                | transformers | Python | 4.44 |
+                | pytorch | Python | 2.4 |
+                | tensorflow | Python | 2.17 |
+                | spark | Python | 3.5 |
                 """;
         return ToolResponse.success(List.of(new TextContent(list)));
     }

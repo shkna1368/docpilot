@@ -58,17 +58,35 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 
 | Language | Frameworks |
 |----------|-----------|
-| Go | Fiber, Gin, Echo |
-| Java | Spring Boot, Spring Framework, Spring Security, Spring Data, Spring Cloud, Quarkus |
+| Go | Fiber, Gin, Echo, Chi, Gorilla Mux |
+| Java | Spring Boot, Spring Framework, Spring Security, Spring Data, Spring Cloud, Quarkus, Micronaut, Vert.x |
 | Python | FastAPI, Django, Flask |
-| Rust | Rocket, Actix-web, Axum |
-| TypeScript | NestJS, Angular |
-| JavaScript | Express, React |
+| Rust | Rocket, Actix-web, Axum, Warp |
+| TypeScript | NestJS, Angular, Next.js, Nuxt.js, Hono |
+| JavaScript | Express, React, Fastify |
 | C# | ASP.NET Core |
+| PHP | Laravel, Symfony |
+| Ruby | Rails, Sinatra |
+| Elixir | Phoenix |
 | Dart | Flutter |
 | Kotlin | Android (Jetpack Compose) |
 | Swift | iOS (SwiftUI) |
 | Cross-platform | React Native |
+
+| AI / ML | Framework |
+|---------|-----------|
+| LangChain | 0.3 |
+| CrewAI | 0.80 |
+| Spring AI | 1.0 |
+| Hugging Face Transformers | 4.44 |
+| PyTorch | 2.4 |
+| TensorFlow | 2.17 |
+| Apache Spark | 3.5 |
+| LlamaIndex | 0.11 |
+| OpenAI API | 1.0 |
+| Anthropic API | 1.0 |
+| scikit-learn | 1.5 |
+| MLflow | 2.16 |
 
 | Technology | Version |
 |-----------|---------|
@@ -79,12 +97,25 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | Elasticsearch | 8 |
 | Apache Kafka | 3.9 |
 | RabbitMQ | 3.13 |
+| NATS | 2.10 |
 | gRPC | 1.60 |
 | GraphQL | Oct2021 |
 | Docker | 27 |
 | Kubernetes | 1.31 |
 | Terraform | 1.9 |
+| Pulumi | 3 |
 | Jenkins | 2.4 |
+| Helm | 3.16 |
+| ArgoCD | 2.12 |
+| Nginx | 1.27 |
+| Traefik | 3 |
+| Envoy | 1.31 |
+| Istio | 1.23 |
+| OpenTelemetry | 1.0 |
+| Prometheus | 2.54 |
+| Grafana | 11 |
+| Vault | 1.17 |
+| Keycloak | 25 |
 
 ## Tools
 
