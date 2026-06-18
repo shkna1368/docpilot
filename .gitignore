@@ -1,8 +1,45 @@
+# Java / Maven
 target/
-.venv/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/repository/
+.mvn/wrapper/maven-wrapper.jar
+
+# Python
 __pycache__/
 *.pyc
-.pytest_cache/
+*.pyo
 *.egg-info/
+dist/
+.venv/
+venv/
+.pytest_cache/
+*.egg
+
+# Ingestion output (generated SQL - large files)
 ingestion/output/*.sql
-.mvn/repository/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+*.tar
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
