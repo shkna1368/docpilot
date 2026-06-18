@@ -83,6 +83,17 @@ printf '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion
   | docker run -i --rm framework-docs-mcp:latest
 ```
 
+## Native Image Build (Optional)
+
+For faster startup (~2s vs ~8s), build a native image:
+
+```bash
+./mvnw package -DskipTests -Dnative
+docker build -f Dockerfile.native -t framework-docs-mcp:native .
+```
+
+Requires GraalVM 25+ with native-image installed.
+
 ## Project Structure
 
 ```

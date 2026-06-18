@@ -26,8 +26,8 @@ def _register_scrapers():
     from .scrapers.quarkus import QuarkusScraper
     from .scrapers.axum import AxumScraper
     from .scrapers.postgresql import PostgreSQLScraper
-    from .scrapers.mysql import MySQLScraper
-    from .scrapers.redis import RedisScraper
+    from .scrapers.mysql import MySQLServerScraper, MySQLShellScraper, MySQLOperatorScraper, MySQLConnectorJScraper, MySQLConnectorPythonScraper
+    from .scrapers.redis import RedisScraper, RedisDocScraper
     from .scrapers.kafka import KafkaScraper
     from .scrapers.grpc import GrpcScraper
     from .scrapers.graphql import GraphQLScraper
@@ -50,8 +50,13 @@ def _register_scrapers():
     SCRAPERS["quarkus"] = QuarkusScraper()
     SCRAPERS["axum"] = AxumScraper()
     SCRAPERS["postgresql"] = PostgreSQLScraper()
-    SCRAPERS["mysql"] = MySQLScraper()
+    SCRAPERS["mysql"] = MySQLServerScraper()
+    SCRAPERS["mysql-shell"] = MySQLShellScraper()
+    SCRAPERS["mysql-operator"] = MySQLOperatorScraper()
+    SCRAPERS["mysql-connector-j"] = MySQLConnectorJScraper()
+    SCRAPERS["mysql-connector-python"] = MySQLConnectorPythonScraper()
     SCRAPERS["redis"] = RedisScraper()
+    SCRAPERS["redis-doc"] = RedisDocScraper()
     SCRAPERS["kafka"] = KafkaScraper()
     SCRAPERS["grpc"] = GrpcScraper()
     SCRAPERS["graphql"] = GraphQLScraper()

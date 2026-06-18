@@ -45,7 +45,8 @@ public class DocSearchTools {
             @ToolArg(description = "Natural-language query") String query,
             @ToolArg(description = "Max results (default: 4, max: 50)", required = false) Integer maxResults,
             @ToolArg(description = "Project directory for framework auto-detection", required = false) String projectDir,
-            @ToolArg(description = "Explicit framework filter: go-fiber, spring-boot, spring-framework, spring-security, spring-data, spring-cloud, quarkus, aspnet-core, fastapi, go-gin, actix-web, go-echo, rocket, nestjs, django, axum, express, flask, csharp-minimal-api, postgresql, mysql, redis, oracle, kafka, grpc, graphql", required = false) String framework) {
+            @ToolArg(description = "Explicit framework filter: go-fiber, spring-boot, spring-framework, spring-security, spring-data, spring-cloud, quarkus, aspnet-core, fastapi, go-gin, actix-web, go-echo, rocket, nestjs, django, axum, express, flask, csharp-minimal-api, postgresql, mysql, redis, oracle, kafka, grpc, graphql", required = false) String framework,
+            @ToolArg(description = "Filter by framework version (e.g. '4.0', '3.36')", required = false) String frameworkVersion) {
 
         int limit = (maxResults != null && maxResults > 0) ? Math.min(maxResults, 50) : defaultMaxResults;
 
@@ -88,6 +89,12 @@ public class DocSearchTools {
 
             // Framework filter
             if (detectedFramework != null && !source.equals(detectedFramework)) continue;
+
+            // Version filter
+            if (frameworkVersion != null && !frameworkVersion.isBlank()) {
+                String version = str(meta, "version");
+                if (!version.equals(frameworkVersion)) continue;
+            }
 
             // Metadata boosting
             double score = match.score();
