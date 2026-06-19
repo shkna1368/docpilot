@@ -1,5 +1,9 @@
 # Architecture
 
+![Architecture Overview](images/arch1.png)
+
+![Architecture Detail](images/arch2.png)
+
 ## Overview
 
 docpilot runs as a single Docker container with two main components:
