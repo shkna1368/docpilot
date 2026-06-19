@@ -1,0 +1,34 @@
+site_name: docpilot
+site_description: MCP server providing semantic documentation search across 30+ frameworks
+repo_url: https://github.com/shkna1368/docpilot
+repo_name: shkna1368/docpilot
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.highlight
+
+docs_dir: wiki
+
+nav:
+  - Home: Home.md
+  - Getting Started: Getting-Started.md
+  - Supported Frameworks: Supported-Frameworks.md
+  - Adding a New Framework: Adding-a-New-Framework.md
+  - Architecture: Architecture.md
+  - Configuration: Configuration.md
+  - API Reference: API-Reference.md
+  - Contributing: Contributing.md
