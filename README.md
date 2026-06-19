@@ -26,6 +26,10 @@ docpilot exposes two tools via MCP:
 - **`searchDocs`** — semantic search across all indexed documentation
 - **`listFrameworks`** — discover what frameworks and technologies are available
 
+## Documentation
+
+📖 **[Full Documentation](https://shkna1368.github.io/docpilot/)**
+
 ## Quick Start
 
 ```bash
