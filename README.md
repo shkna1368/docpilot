@@ -115,6 +115,7 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | gRPC | 1.60 |
 | GraphQL | Oct2021 |
 | Docker | 27 |
+| Docker Compose | 2 |
 | Kubernetes | 1.31 |
 | Terraform | 1.9 |
 | Pulumi | 3 |
@@ -130,6 +131,7 @@ claude mcp add framework-docs -- docker run -i --rm ghcr.io/shkna1368/docpilot:l
 | Grafana | 11 |
 | Vault | 1.17 |
 | Keycloak | 25 |
+| Git | 2 |
 
 ## Tools
 

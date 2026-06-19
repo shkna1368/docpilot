@@ -55,12 +55,14 @@
 | Technology | Version |
 |-----------|---------|
 | Docker | 27 |
+| Docker Compose | 2 |
 | Kubernetes | 1.31 |
 | Terraform | 1.9 |
 | Pulumi | 3 |
 | Helm | 3.16 |
 | ArgoCD | 2.12 |
 | Jenkins | 2.4 |
+| Git | 2 |
 
 ## Service Mesh & Proxies
 

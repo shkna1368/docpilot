@@ -33,7 +33,7 @@ def _register_scrapers():
     from .scrapers.graphql import GraphQLScraper
     from .scrapers.angular import AngularScraper
     from .scrapers.react import ReactScraper
-    from .scrapers.docker import DockerScraper
+    from .scrapers.docker import DockerScraper, DockerComposeScraper
     from .scrapers.kubernetes import KubernetesScraper
     from .scrapers.terraform import TerraformScraper
     from .scrapers.mongodb import MongoDBScraper
@@ -70,6 +70,7 @@ def _register_scrapers():
     from .scrapers.go_ecosystem import GoRedisScraper, PgxScraper, GrpcGoScraper, SqlcScraper
     from .scrapers.rust_ecosystem import SqlxScraper, TonicScraper, SeaOrmScraper
     from .scrapers.oracle import OracleGoScraper, OracleNodeScraper, OraclePythonScraper
+    from .scrapers.git import GitScraper
     from .scrapers.hibernate import HibernateScraper
     SCRAPERS["go-fiber"] = GoFiberScraper()
     SCRAPERS["go-gin"] = GinScraper()
@@ -103,6 +104,7 @@ def _register_scrapers():
     SCRAPERS["angular"] = AngularScraper()
     SCRAPERS["react"] = ReactScraper()
     SCRAPERS["docker"] = DockerScraper()
+    SCRAPERS["docker-compose"] = DockerComposeScraper()
     SCRAPERS["kubernetes"] = KubernetesScraper()
     SCRAPERS["terraform"] = TerraformScraper()
     SCRAPERS["mongodb"] = MongoDBScraper()
@@ -168,6 +170,7 @@ def _register_scrapers():
     SCRAPERS["oracle-go"] = OracleGoScraper()
     SCRAPERS["oracle-node"] = OracleNodeScraper()
     SCRAPERS["oracle-python"] = OraclePythonScraper()
+    SCRAPERS["git"] = GitScraper()
     SCRAPERS["hibernate"] = HibernateScraper()
 
 
