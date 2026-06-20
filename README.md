@@ -1,12 +1,12 @@
 # docpilot
 
-MCP server providing semantic documentation search across 30+ frameworks and technologies. Packaged as a single Docker image — zero installation beyond Docker.
+MCP server providing semantic documentation search across 80+ frameworks and technologies. Packaged as a single Docker image — zero installation beyond Docker.
 
 ## Why?
 
 AI coding agents like Claude Code, GitHub Copilot, Cursor, Windsurf, and JetBrains AI are already capable of generating code, fixing bugs, and refactoring entire modules. But they become much more effective when they have context about the framework you're using: that Spring Boot's `@CacheEvict` needs `@EnableCaching` on the config class, that Fiber middleware runs in registration order, that Django's `QuerySet` is lazy until evaluated, that Kubernetes Services need matching label selectors.
 
-**docpilot** gives agents exactly that context. It is a standalone MCP server that lets any compatible AI agent search real, up-to-date documentation across 30+ frameworks and technologies — providing accurate API references, configuration patterns, and best practices instead of hallucinated code.
+**docpilot** gives agents exactly that context. It is a standalone MCP server that lets any compatible AI agent search real, up-to-date documentation across 80+ frameworks and technologies — providing accurate API references, configuration patterns, and best practices instead of hallucinated code.
 
 ```
 You:     "Add Redis caching to my Spring Boot service"

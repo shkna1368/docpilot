@@ -2,7 +2,7 @@
 
 ![docpilot Architecture](images/arch1.png)
 
-Welcome to the **docpilot** wiki — an MCP server providing semantic documentation search across 30+ frameworks and technologies for AI coding agents.
+Welcome to the **docpilot** wiki — an MCP server providing semantic documentation search across 80+ frameworks and technologies for AI coding agents.
 
 ## Pages
 
